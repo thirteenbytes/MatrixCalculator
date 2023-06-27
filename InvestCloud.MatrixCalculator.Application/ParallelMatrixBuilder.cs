@@ -3,16 +3,16 @@ using MatrixCalculator.Domain;
 
 namespace InvestCloud.MatrixCalculator.Application;
 
-internal class ParallelMatrixBuilder : IMatrixBuilder<ParallelMatrixCalculator>
+internal class ParallelMatrixBuilder : IMatrixBuilder<ParallelMatrix>
 {
     private readonly IInvestCloudClient client;
 
     public ParallelMatrixBuilder(IInvestCloudClient client) =>
         this.client = client;
 
-    public Task<ParallelMatrixCalculator> GetMatrix(int size, string dataset)
+    public Task<ParallelMatrix> GetMatrix(int size, string dataset)
     {
-        var matrix = new ParallelMatrixCalculator(size);
+        var matrix = new ParallelMatrix(size);
 
         Parallel.For(0, size, i =>
         {

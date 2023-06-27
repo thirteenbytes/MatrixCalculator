@@ -6,8 +6,8 @@ namespace MatrixCalculator.Domain.UnitTests
         public void Multiple_2by2_Matrices()
         {
             // Arrange
-            var matrixA = new ParallelMatrixCalculator(2);
-            var matrixB = new ParallelMatrixCalculator(2);
+            var matrixA = new ParallelMatrix(2);
+            var matrixB = new ParallelMatrix(2);
 
             var row0 = new List<int> { 2, 3 };
             var row1 = new List<int> { 1, 4 };
@@ -35,8 +35,8 @@ namespace MatrixCalculator.Domain.UnitTests
         public void Multiple_3by3_Matrices()
         {
             // Arrange
-            var matrixA = new ParallelMatrixCalculator(3);
-            var matrixB = new ParallelMatrixCalculator(3);
+            var matrixA = new ParallelMatrix(3);
+            var matrixB = new ParallelMatrix(3);
 
             var row0 = new List<int> { 22, 8, -4 };
             var row1 = new List<int> { -1, 1, 34 };
@@ -67,8 +67,8 @@ namespace MatrixCalculator.Domain.UnitTests
         [Fact]
         public void Multiple_2by2_EmptyMatrixA()
         {
-            var matrixA = new ParallelMatrixCalculator(2);
-            var matrixB = new ParallelMatrixCalculator(2);
+            var matrixA = new ParallelMatrix(2);
+            var matrixB = new ParallelMatrix(2);
 
             var row0 = new List<int> { 1, 1 };
             var row1 = new List<int> { 1, 1 };

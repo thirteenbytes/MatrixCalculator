@@ -1,26 +1,26 @@
 ﻿namespace MatrixCalculator.Domain;
 
-public class ParallelMatrixCalculator : Matrix<int>
+public class ParallelMatrix : Matrix<int>
 {
-    public ParallelMatrixCalculator(int size) : base(size)
+    public ParallelMatrix(int size) : base(size)
     {
     }
 
     protected override Matrix<int> Multiply(Matrix<int> b)
     {
-        var matrixResult = new ParallelMatrixCalculator(base.rowTotal);
+        var matrixResult = new ParallelMatrix(base.rowTotal);
         Parallel.For(0, this.rowTotal, row =>
         {
             Parallel.For(0, this.columnTotal, column =>
             {
-                MultiplyCompute(row, column, this, (ParallelMatrixCalculator)b, matrixResult);
+                MultiplyCompute(row, column, this, (ParallelMatrix)b, matrixResult);
             });
         });
 
         return matrixResult;
     }
 
-    private void MultiplyCompute(int rowIndex, int columnIndex, ParallelMatrixCalculator a, ParallelMatrixCalculator b, ParallelMatrixCalculator result)
+    private void MultiplyCompute(int rowIndex, int columnIndex, ParallelMatrix a, ParallelMatrix b, ParallelMatrix result)
     {
         var tempRowIndex = rowIndex;
         var tempColumnIndex = columnIndex;

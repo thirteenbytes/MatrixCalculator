@@ -21,7 +21,7 @@ public class InvestCloudService : IInvestCloudService
         try
         {
             logger.Information($"Step 1: Initializing and build the square matrices ({sizeOfMatrix} x {sizeOfMatrix})");
-            (ParallelMatrixCalculator matrixA, ParallelMatrixCalculator matrixB) = await GetMatrices(sizeOfMatrix);
+            (ParallelMatrix matrixA, ParallelMatrix matrixB) = await GetMatrices(sizeOfMatrix);
 
             logger.Information($"Step 2: Multiple the two matrices");
             var matrixResult = matrixA * matrixB;
@@ -49,7 +49,7 @@ public class InvestCloudService : IInvestCloudService
 
     }
 
-    private async Task<(ParallelMatrixCalculator, ParallelMatrixCalculator)> GetMatrices(int size)
+    private async Task<(ParallelMatrix, ParallelMatrix)> GetMatrices(int size)
     {
         var initCallResponse = await client.Initialize(size);
         if (initCallResponse.Success)
