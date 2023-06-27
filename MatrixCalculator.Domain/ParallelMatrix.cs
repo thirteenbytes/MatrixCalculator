@@ -1,4 +1,6 @@
-﻿namespace MatrixCalculator.Domain;
+﻿using MatrixCalculator.Domain.Abstractions;
+
+namespace MatrixCalculator.Domain;
 
 public class ParallelMatrix : Matrix<int>
 {

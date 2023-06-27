@@ -1,4 +1,4 @@
-﻿namespace MatrixCalculator.Domain;
+﻿namespace MatrixCalculator.Domain.Abstractions;
 
 public abstract class Matrix<T> : IMatrix<T> where T : struct
 {

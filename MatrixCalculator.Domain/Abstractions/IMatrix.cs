@@ -1,4 +1,4 @@
-﻿namespace MatrixCalculator.Domain;
+﻿namespace MatrixCalculator.Domain.Abstractions;
 
 public interface IMatrix<T> where T : struct
 {
