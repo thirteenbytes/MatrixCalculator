@@ -28,9 +28,10 @@ internal class Program
                 .ConfigureServices((context, services) =>
                 {
                     services
-                        .AddSingleton<Serilog.ILogger>(Log.Logger)
+                        .AddSingleton<ILogger>(Log.Logger)
                         .AddTransient<IInvestCloudService, InvestCloudService>()
-                        .AddHttpClient<IInvestCloudClient, InvestCloudClient>(c => c.BaseAddress = new Uri(section.Value));
+                        .AddTransient<IInvestCloudClient, InvestCloudClient>()                        
+                        .AddHttpClient("InvestCloudClient", c => c.BaseAddress = new Uri(section.Value));
 
                 })
                 .UseSerilog()

@@ -1,6 +1,6 @@
 namespace MatrixCalculator.Domain.UnitTests
 {
-    public class MatrixMultiplicationTest
+    public class MatrixMultiplicationTests
     {
         [Fact]
         public void Multiple_2by2_Matrices()

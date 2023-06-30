@@ -8,7 +8,7 @@ namespace InvestCloud.MatrixCalculator.Application;
 public class InvestCloudService : IInvestCloudService
 {
     private readonly ILogger logger;
-    private IInvestCloudClient client;
+    private readonly IInvestCloudClient client;
 
     public InvestCloudService(ILogger logger, IInvestCloudClient client)
     {
