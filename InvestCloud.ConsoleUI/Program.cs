@@ -30,7 +30,7 @@ internal class Program
                     services
                         .AddSingleton<ILogger>(Log.Logger)
                         .AddTransient<IInvestCloudService, InvestCloudService>()
-                        .AddTransient<IInvestCloudClient, InvestCloudClient>()                        
+                        .AddTransient<IInvestCloudClient, InvestCloudClient>()
                         .AddHttpClient("InvestCloudClient", c => c.BaseAddress = new Uri(section.Value));
 
                 })
@@ -38,7 +38,7 @@ internal class Program
                 .Build();
 
         var svc = ActivatorUtilities.CreateInstance<InvestCloudService>(host.Services);
-        await svc.Run(1000);
+        await svc.Run(2);
 
 
         static void BuildConfiguration(IConfigurationBuilder builder)

@@ -2,5 +2,5 @@
 
 namespace InvestCloud.MatrixCalculator.Application.Models;
 
-public record ResultOfString : ResultOf<string>;
+public sealed record ResultOfString : ResultOf<string>;
 

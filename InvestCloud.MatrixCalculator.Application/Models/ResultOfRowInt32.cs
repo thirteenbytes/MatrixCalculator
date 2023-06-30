@@ -2,5 +2,5 @@
 
 namespace InvestCloud.MatrixCalculator.Application.Models;
 
-public record ResultOfRowInt32 : ResultOf<List<int>>;
+public sealed record ResultOfRowInt32 : ResultOf<List<int>>;
 

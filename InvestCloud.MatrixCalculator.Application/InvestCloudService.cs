@@ -26,6 +26,7 @@ public class InvestCloudService : IInvestCloudService
             logger.Information($"Step 2: Multiple the two matrices");
             var matrixResult = matrixA * matrixB;
 
+            var a = matrixResult.ToString();
             logger.Information($"Step 3: Create the MD5 Hash for validation.");
             var md5Validation = matrixResult
                 .ToString()

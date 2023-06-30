@@ -10,7 +10,7 @@ namespace InvestCloud.MatrixCalculator.Application;
 
 public class InvestCloudClient : IInvestCloudClient
 {
-    private readonly IHttpClientFactory httpClientFactory;    
+    private readonly IHttpClientFactory httpClientFactory;
     private readonly IConfiguration configuration;
     private readonly HttpClient httpClient;
 
@@ -20,7 +20,7 @@ public class InvestCloudClient : IInvestCloudClient
         this.httpClient = httpClientFactory.CreateClient("InvestCloudClient");
         this.configuration = configuration;
     }
-    
+
 
     public async Task<ResultOfRowInt32> GetRow(string dataset, int idx)
     {
@@ -30,14 +30,14 @@ public class InvestCloudClient : IInvestCloudClient
             .InterpolateConvert(new { dataset, type, idx });
 
         var response = await httpClient.GetAsync(path);
-        if(!response.IsSuccessStatusCode)
+
+        if (!response.IsSuccessStatusCode)
         {
             throw new Exception(response.StatusCode.ToString());
         }
-        return await response.Content.ReadFromJsonAsync<ResultOfRowInt32>();
-        
 
-        //return await httpClient.GetFromJsonAsync<ResultOfRowInt32>(getPath);
+        return await response.Content.ReadFromJsonAsync<ResultOfRowInt32>();
+
     }
 
     public async Task<ResultOfInt32> Initialize(int size)
@@ -47,11 +47,13 @@ public class InvestCloudClient : IInvestCloudClient
              .InterpolateConvert(new { size });
 
         var response = await httpClient.GetAsync(path);
+
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(response.StatusCode.ToString());
         }
-        return await response.Content.ReadFromJsonAsync<ResultOfInt32>();        
+
+        return await response.Content.ReadFromJsonAsync<ResultOfInt32>();
     }
 
     public async Task<ResultOfString> Validate(string md5Hash)
@@ -63,10 +65,12 @@ public class InvestCloudClient : IInvestCloudClient
         var requestContent = new StringContent(stringPayLoad, Encoding.UTF8, "application/json");
 
         var response = await httpClient.PostAsync(validatePath, requestContent);
-        response.EnsureSuccessStatusCode();
 
-        var responseContent = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(response.StatusCode.ToString());
+        }
 
-        return JsonConvert.DeserializeObject<ResultOfString>(responseContent);
+        return await response.Content?.ReadFromJsonAsync<ResultOfString>();
     }
 }

@@ -17,6 +17,10 @@
     <ProjectReference Include="..\MatrixCalculator.Domain\MatrixCalculator.Domain.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="InvestCloud.MatrixCalculator.Application.UnitTests"/>
+	</ItemGroup>	
+
   <ItemGroup>
     <Folder Include="Exceptions\" />
   </ItemGroup>
