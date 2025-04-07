@@ -10,7 +10,7 @@ internal class ParallelMatrixBuilder : IMatrixBuilder<ParallelMatrix>
     public ParallelMatrixBuilder(IInvestCloudClient client) =>
         this.client = client;
 
-    public Task<ParallelMatrix> GetMatrix(int size, string dataset)
+    public async Task<ParallelMatrix> GetMatrix(int size, string dataset)
     {
         var matrix = new ParallelMatrix(size);
 
@@ -29,6 +29,6 @@ internal class ParallelMatrixBuilder : IMatrixBuilder<ParallelMatrix>
 
         });
 
-        return Task.FromResult(matrix);
+        return matrix;
     }
 }

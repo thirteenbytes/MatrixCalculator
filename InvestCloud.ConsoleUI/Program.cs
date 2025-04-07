@@ -38,7 +38,7 @@ internal class Program
                 .Build();
 
         var svc = ActivatorUtilities.CreateInstance<InvestCloudService>(host.Services);
-        await svc.Run(2);
+        await svc.Run(1000);
 
 
         static void BuildConfiguration(IConfigurationBuilder builder)

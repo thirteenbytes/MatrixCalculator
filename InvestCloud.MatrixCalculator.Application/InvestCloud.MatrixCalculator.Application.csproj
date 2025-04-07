@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Exceptions\**" />
+    <EmbeddedResource Remove="Exceptions\**" />
+    <None Remove="Exceptions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
@@ -18,11 +24,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="InvestCloud.MatrixCalculator.Application.UnitTests"/>
-	</ItemGroup>	
-
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+		<InternalsVisibleTo Include="InvestCloud.MatrixCalculator.Application.UnitTests" />
+	</ItemGroup>
 
 </Project>
