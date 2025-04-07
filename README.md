@@ -24,11 +24,6 @@ retrieval and computation in around 30 seconds, understood this depends on vario
 3. You can change size of the Matrices you wan to calcuate in the Program.cs. await svc.Run(2). We tested 1000 to test how fast it is.
 
 Expected out:
-[12:15:44 INF] Application starting:
-[12:15:44 INF] Step 1: Initializing and build the square matrices (1000 x 1000)
-[12:16:11 INF] Step 2: Multiple the two matrices
-[12:16:20 INF] Step 3: Create the MD5 Hash for validation.
-[12:16:20 INF] Step 4: Validating the MD5 Hash 1952421063211517718112143121254201247179132186
-[12:16:20 INF] Step 5: Passphrase: Kraken Approves!
+![image](https://github.com/user-attachments/assets/1b74a98e-c00c-480c-af04-c5f5f53c03cd)
 
 Note this accesses the company API to get the data.
